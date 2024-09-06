@@ -1,0 +1,128 @@
+clone -> Bring a repositry that is hosted somewhere like Github into a folder on your local machine 
+
+add -> Track your files and changes in Git 
+
+commit -> save your files in git 
+push ->upload git commits to remote repo to your local machine the opposite of push 
+
+git clone - link 
+if u don't have ssh key then check it once 
+ls -al ~/.ssh
+
+This will list all SSH keys stored in your ~/.ssh directory.
+Look for files like id_rsa and id_rsa.pub (or similar).
+If you don't see them, you'll need to generate a new SSH key.
+
+Generate an SSH Key (if you don't have one)
+If you don't have an SSH key, generate one with the following command:
+
+bash
+Copy code
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+after ssh done 
+ add ssh to github 
+check the public key 
+  cat ~/.ssh/id_rsa.pub
+
+after the copy it and do this task 
+
+
+1. Add the SSH Key to Your GitHub Account
+To connect your SSH key to GitHub, you need to add the public key (id_rsa.pub) to your GitHub account.
+
+Here’s how:
+
+Copy the public key to your clipboard by running this command:
+
+bash
+Copy code
+cat ~/.ssh/id_rsa.pub
+This will display the public key in your terminal. Copy the entire key that starts with ssh-rsa and ends with your email address.
+
+Go to GitHub:
+
+Sign in to your GitHub account.
+Click on your profile picture in the top-right corner, and go to Settings.
+In the left-hand sidebar, click SSH and GPG keys.
+Click New SSH key.
+Give it a title (something like "My Computer SSH Key").
+Paste the public key you copied into the Key field.
+Click Add SSH key.
+2. Test the SSH Connection
+After adding the key to GitHub, test the connection by running:
+
+bash
+Copy code
+ssh -T git@github.com
+If everything is set up correctly, you should see a message like:
+
+vbnet
+Copy code
+Hi your-username! You've successfully authenticated, but GitHub does not provide shell access.
+
+
+
+When i make the file and runthe command git satatu -> it saying about the new file that is untracked 
+
+after that use 
+
+
+
+/// processs
+git clone - git@github.com:example10/app.git
+ls
+git status check for updated thing are track or not 
+git add . commit the file track 
+
+git commit -m "Added updated.cpp file" -m "some description"
+git push origin main 
+
+when i make the folder in vscode , add something i want to push on github 
+then first to connect with 
+git remote add origin git@github.com:name/mo.git like this 
+after this check 
+git remote -v
+
+
+git branching
+   
+commit 1 ------- commit 2 ------- commit 3 ----------- commit 4 ------ commit 5 ---------- commit 6
+                                   \                                    /
+                                    \commit 1 --------------- commit 2/                    # feature branch 
+
+git checkout 
+git checkout -b feature-readme-instructions
+Switched to a new branch 'feature-readme-instructions
+
+git checkout main                          
+Switched to branch 'main'
+
+git checkout feature-readme-instructions
+Switched to branch 'feature-readme-instructions'
+file m change kiye kuch 
+then git status 
+git add .
+git commit -m "message"
+jo change hue hai vo feature-readme-instructions change hue hai , agar muje dhek na hai the 
+uss se phaale 
+git checkout main
+git diff feature-readme-instructions
+
+before the merge i want to push on github 
+agin change in 
+git checkout feature-readme-instructions
+
+git push            
+fatal: The current branch feature-readme-instructions has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin feature-readme-instructions
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+run
+git push -u origin feature-readme-instructions push on github 
+
